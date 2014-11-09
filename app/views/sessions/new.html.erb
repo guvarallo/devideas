@@ -1,0 +1,24 @@
+<fieldset>
+  <legend>Log in</legend>
+  <%= form_tag login_path, 'data-abide' => '' do %>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= label_tag :username %>
+        <%= text_field_tag :username, nil, placeholder: 'Your name', required: '' %>
+        <%= content_tag :small, "Required", class: "error" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= label_tag :password %>
+        <%= password_field_tag :password, nil, placeholder: 'Your password', required: '' %>
+        <%= content_tag(:small, "Required", class: "error") %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= submit_tag "Submit", class: "small button success" %>
+      </div>
+    </div>
+  <% end %>
+</fieldset>

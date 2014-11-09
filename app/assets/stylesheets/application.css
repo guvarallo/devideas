@@ -16,8 +16,7 @@
  *= require foundation_and_overrides
  */
 
-@import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
-
+@import url(http://fonts.googleapis.com/css?family=Knewave);
 @import 'bootstrap';
 @import "foundation_and_overrides";
 
@@ -25,8 +24,16 @@
   margin-top: 50px;
 }
 
-.jumbotron h1, .name {
-  font-family: 'Gloria Hallelujah', cursive;
+.jumbotron h1, .dev {
+  font-family: 'Knewave', cursive;
+}
+.navbar-inverse {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.right {
+  margin-right: 20px;
 }
 
 .row {

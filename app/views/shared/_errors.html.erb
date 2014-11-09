@@ -1,6 +1,6 @@
 <% if object.errors.any? %>
   <div id="mainAlert1" data-alert class="alert-box warning" tabindex="0" aria-live="assertive" role="dialogalert"> 
-    <h5 id="error_text">Please observe the notice below: </h5>
+    <p id="error_text">Please observe the notice below: </p>
     <ul>
       <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

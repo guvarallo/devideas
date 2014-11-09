@@ -1,31 +1,8 @@
-<ul class="title-area">
-  <li class="name">
-    <h1><%= link_to 'DEVIDEAS', root_path, class: 'name' %></h1>
-  </li>
-</ul>
-
-<section class="top-bar-section">
-
-  <!-- Right Nav Section -->
-  <ul class="right">
-    <li class="has-form"><%= link_to 'Already a member?', '#', class: "big button success" %></li>
-  </ul>
-
-  <!-- Search
-  <ul class="right">
-    <li class="has-form">
-      <div class="row collapse">
-        <div class="large-8 small-9 columns">
-          <input type="text" placeholder="Find ideas">
-        </div>
-        <div class="large-4 small-3 columns">
-          <a href="#" class="alert button expand">Search</a>
-        </div>
-      </div>
-    </li>
-  </ul>
-  -->
-  
-  <!-- Left Nav Section -->
-
-</section>
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <ul class="navbar-brand">
+      <span class="dev"><%= link_to 'DEVIDEAS', root_path %></span>
+      <span class="right"><%= link_to 'Already a member?', login_path, class: 'navbar-right' %></span>
+    </ul>
+  </div>
+</nav>
