@@ -1,0 +1,18 @@
+<div class="jumbotron text-center">
+  <h1>DEVIDEAS</h1>
+  <p>Speak up your ideas so a developer can make it come true!</p></br>
+    <p>
+      <%= link_to "Register", new_user_path, class: "button success" %></br>
+    </p>
+</div>
+
+<div id="ideas" class="transitions-enabled">
+  <% @ideas.each do |idea| %>
+    <div class="box panel panel-default">
+      <div class="panel-body panel-size">
+        <%= idea.description %><br/>
+        <strong><%= idea.user.name if idea.user %></strong>
+      </div>
+    </div>
+  <% end %>
+</div>

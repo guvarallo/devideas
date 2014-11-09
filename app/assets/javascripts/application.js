@@ -13,4 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
 //= require_tree .
+//= require foundation
+//= require masonry/jquery.masonry
+
+$(function(){ $(document).foundation(); });
+
+$('#idea_description').keyup(function () {
+  var max = 140;
+  var len = $(this).val().length;
+  if (len >= max) {
+    $('#charNum').text(' you have reached the limit');
+  } else {
+    var char = max - len;
+    $('#charNum').text(char + ' characters left');
+  }
+});

@@ -11,5 +11,48 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require 'masonry/transitions'
  *= require_self
+ *= require foundation_and_overrides
  */
+
+@import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+
+@import 'bootstrap';
+@import "foundation_and_overrides";
+
+.jumbotron {
+  margin-top: 50px;
+}
+
+.jumbotron h1, .name {
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.row {
+  margin-left: 0 !important;
+}
+
+label {
+  font-weight: bold !important;
+}
+
+#error_text {
+  color: white !important;
+}
+
+#ideas {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.box {
+  box-shadow: 10px 10px 5px #888888;
+  margin: 5px;
+  word-wrap: break-word;
+}
+
+.panel-size {
+  width: 150px !important;
+  height: auto;
+}

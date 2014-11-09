@@ -1,0 +1,31 @@
+<fieldset>
+  <legend>Registration</legend>
+  <%= form_for @user, :html => {"data-abide" => ''} do |f| %>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= f.label :username %>
+        <%= f.text_field :username, placeholder: "Your name", :required => '' %>
+        <%= content_tag :small, "Required", class: "error" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= f.label :email %>
+        <%= f.email_field :email, placeholder: "Your email", :required => '' %>
+        <%= content_tag(:small, "Requires a valid email address", class: "error") %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= f.label :password %>
+        <%= f.password_field :password, placeholder: "Your password", :required => '' %>
+        <%= content_tag(:small, "Requires a password with 5 or more letters", class: "error") %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= f.button "Submit", class: "small button success" %>
+      </div>
+    </div>
+  <% end %>
+</fieldset>

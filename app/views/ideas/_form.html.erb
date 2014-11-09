@@ -1,0 +1,21 @@
+<fieldset>
+  <legend>Add Your Idea Below</legend>
+  <%= form_for @idea do |f| %>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= f.label :description %>
+        <%= f.text_area :description, rows: 6, onkeyup: 'countChar(this)' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 columns">
+        <small><div id="charNum"></div></small> <!-- Exhibits the char count -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 columns">
+        <%= f.button "Submit", class: "small button success" %>
+      </div>
+    </div>
+  <% end %>
+</fieldset>
