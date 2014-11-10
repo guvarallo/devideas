@@ -10,8 +10,7 @@
   <div class="jumbotron text-center">
     <h1>Speak up!</h1>
     <p>Just click the button below to add your idea in the panel.</p>
-    <p>Hope someone helps you make it come true :)</p>
-        <%= link_to 'Speak up!', new_idea_path, class: 'large alert round button' %>
+    <%= link_to 'Speak up!', new_idea_path, class: 'large alert round button' %>
   </div>
 <% end %>
 
@@ -21,15 +20,19 @@
       <div class="panel-body panel-size">
         <span id="descr">"<%= idea.description %>"</span><br/>
         <small>Posted by  </small><strong><%= idea.user.username if idea.user %></strong></br>
-        <small>at <%= datetime(idea.created_at) %></small></br>
-        <span><%= link_to like_idea_path(idea, like: true), method: 'post', remote: true do %></span>
-                <% if logged_in? %>
+        <small>at <%= datetime(idea.created_at) %></small>
+        <br/>
+        <% if logged_in? %>
+          <span><%= link_to like_idea_path(idea, like: true), method: 'post', remote: true do %></span>
                   <%= image_tag("heart.png", alt: "Like") %>
                 <% end %>
-              <% end %>
-        <span id="idea_<%=idea.id%>_likes"><%= idea.total_likes %> likes</span>
-        <% if current_user == idea.user %>
+        <% end %>
+        <span id="idea_<%=idea.id%>_likes"><small><strong><%= idea.total_likes %> likes</strong></small></span>
+        <br/>
+        <% if logged_in? && (current_user == idea.user) %>
           <span><%= link_to image_tag("pencil.png", alt: "Edit"), edit_idea_path(idea) %></span>
+        <% end %>
+        <% if logged_in? && (current_user == idea.user) %>
           <span id="trash"><%= link_to idea, method: :delete, data: { confirm: 'Are you sure?' } do %></span>
           <%= image_tag("trash.png", alt: "Delete") %>
           <% end %>

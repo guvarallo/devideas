@@ -44,6 +44,7 @@ class IdeasController < ApplicationController
 
   def like
     @like = Like.create(idea: @idea, user: current_user, like: params[:like])
+    
     respond_to do |format|
       format.html do
         if @like.valid?
