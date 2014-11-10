@@ -28,4 +28,11 @@
       </div>
     </div>
   <% end %>
+  <div class="delete">
+    <% if @user == current_user %>
+      <%= link_to @user, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <%= button_tag "Delete my account", class: "small button alert" %>
+      <% end %>
+    <% end %>
+  </div>
 </fieldset>

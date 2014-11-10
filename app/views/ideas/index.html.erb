@@ -1,17 +1,39 @@
-<div class="jumbotron text-center">
-  <h1>DEVIDEAS</h1>
-  <p>Speak up your ideas so a developer can make it come true!</p></br>
-    <p>
-      <%= link_to "Register", new_user_path, class: "button success" %></br>
-    </p>
-</div>
+<% if !logged_in? %>
+  <div class="jumbotron text-center">
+    <h1>DEVIDEAS</h1>
+    <p>Speak up your ideas so a developer can make it come true!</p></br>
+      <p>
+        <%= link_to "Register", new_user_path, class: "large success round button" %></br>
+      </p>
+  </div>
+<% else %>
+  <div class="jumbotron text-center">
+    <h1>Speak up!</h1>
+    <p>Just click the button below to add your idea in the panel.</p>
+    <p>Hope someone helps you make it come true :)</p>
+        <%= link_to 'Speak up!', new_idea_path, class: 'large alert round button' %>
+  </div>
+<% end %>
 
 <div id="ideas" class="transitions-enabled">
   <% @ideas.each do |idea| %>
     <div class="box panel panel-default">
       <div class="panel-body panel-size">
-        <%= idea.description %><br/>
-        <strong><%= idea.user.name if idea.user %></strong>
+        <span id="descr">"<%= idea.description %>"</span><br/>
+        <small>Posted by  </small><strong><%= idea.user.username if idea.user %></strong></br>
+        <small>at <%= datetime(idea.created_at) %></small></br>
+        <span><%= link_to like_idea_path(idea, like: true), method: 'post', remote: true do %></span>
+                <% if logged_in? %>
+                  <%= image_tag("heart.png", alt: "Like") %>
+                <% end %>
+              <% end %>
+        <span id="idea_<%=idea.id%>_likes"><%= idea.total_likes %> likes</span>
+        <% if current_user == idea.user %>
+          <span><%= link_to image_tag("pencil.png", alt: "Edit"), edit_idea_path(idea) %></span>
+          <span id="trash"><%= link_to idea, method: :delete, data: { confirm: 'Are you sure?' } do %></span>
+          <%= image_tag("trash.png", alt: "Delete") %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   <% end %>

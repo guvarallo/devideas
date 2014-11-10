@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-
-  def show; end
+  before_action :set_user,             only: [:edit, :update, :destroy]
+  before_action :require_user,         only: [:edit, :update, :destroy]
+  before_action :require_current_user, only: [:edit, :update, :destroy]
+  before_action :destroy_session,      only: [:destroy]
 
   def new
     @user = User.new
@@ -31,17 +32,26 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
+    if @user.destroy
+      flash[:notice] = "Sorry to see you go... hope you come back soon!"
+      redirect_to root_path
+    else
+      render :back
+    end
   end
 
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by(slug: params[:id])
   end
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
+  end
+
+  def destroy_session
+    session[:user_id] = nil
   end
 
 end

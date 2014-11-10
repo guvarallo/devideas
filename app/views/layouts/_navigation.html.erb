@@ -1,8 +1,13 @@
 <nav class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid">
-    <ul class="navbar-brand">
-      <span class="dev"><%= link_to 'DEVIDEAS', root_path %></span>
-      <span class="right"><%= link_to 'Already a member?', login_path, class: 'navbar-right' %></span>
+    <ul class="navbar-brand dev">
+      <span><%= link_to 'DEVIDEAS', root_path %></span>
+      <% if !logged_in? %>
+        <span class="right"><%= link_to 'Already a member?', login_path %></span>
+      <% else %>
+        <span class="right"><%= link_to image_tag("exit.png", alt: "Log out"), logout_path %></span>
+        <span class="right iuser"><%= link_to image_tag("user.png", alt: "Edit user"), edit_user_path(current_user) %></span>
+      <% end %>
     </ul>
   </div>
 </nav>

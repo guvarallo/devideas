@@ -1,0 +1,5 @@
+<% if @like.valid? %>
+  $('#idea_<%=@idea.id%>_likes').html('<%= @idea.total_likes %> likes');
+<% else %>
+  alert('Already voted on this element.')
+<% end %>

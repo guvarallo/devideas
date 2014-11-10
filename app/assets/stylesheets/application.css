@@ -17,7 +17,9 @@
  */
 
 @import url(http://fonts.googleapis.com/css?family=Knewave);
+
 @import 'bootstrap';
+@import 'bootstrap-sprockets';
 @import "foundation_and_overrides";
 
 .jumbotron {
@@ -29,6 +31,15 @@
 }
 .navbar-inverse {
   margin-top: 10px;
+  margin-left: 10px;
+}
+
+.iuser {
+  margin-top: -3px;
+}
+
+.delete {    /* Link to terminate account */
+  font-family: 'Knewave', cursive;
   margin-left: 10px;
 }
 
@@ -51,6 +62,15 @@ label {
 #ideas {
   margin: 0 auto;
   padding: 20px;
+  text-align: center;
+}
+
+#descr {
+  font-style: italic;
+}
+
+#trash {
+  padding-left: 110px;
 }
 
 .box {
@@ -60,6 +80,6 @@ label {
 }
 
 .panel-size {
-  width: 150px !important;
+  width: 220px !important;
   height: auto;
 }

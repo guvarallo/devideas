@@ -507,7 +507,7 @@ $primary-color: #fff;
 // 08. Dropdown
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// $include-html-dropdown-classes: $include-html-classes;
+$include-html-dropdown-classes: $include-html-classes;
 
 // We use these to controls height and width styles.
 // $f-dropdown-max-width: 200px;
@@ -524,7 +524,7 @@ $primary-color: #fff;
 // $f-dropdown-margin-right: $f-dropdown-margin-top;
 
 // Used for top position
-// $f-dropdown-margin-bottom: $f-dropdown-margin-top;
+// $f-dropdown-margin-bottom: 100px;
 
 // We use this to control the background color
 // $f-dropdown-bg: $white;
@@ -535,9 +535,9 @@ $primary-color: #fff;
 // $f-dropdown-border-color: scale-color($white, $lightness: -20%);
 
 // We use these to style the triangle pip.
-// $f-dropdown-triangle-size: 6px;
+// $f-dropdown-triangle-size: 1px;
 // $f-dropdown-triangle-color: $white;
-// $f-dropdown-triangle-side-offset: 10px;
+// $f-dropdown-triangle-side-offset: 3px;
 
 // We use these to control styles for the list elements.
 // $f-dropdown-list-style: none;
