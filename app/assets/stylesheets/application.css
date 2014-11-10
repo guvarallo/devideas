@@ -15,7 +15,6 @@
  *= require_self
  *= require foundation_and_overrides
  */
-
 @import url(http://fonts.googleapis.com/css?family=Knewave);
 
 @import 'bootstrap';
@@ -38,8 +37,7 @@
   margin-top: -3px;
 }
 
-.delete {    /* Link to terminate account */
-  font-family: 'Knewave', cursive;
+.delete {    /* button to terminate account */
   margin-left: 10px;
 }
 
