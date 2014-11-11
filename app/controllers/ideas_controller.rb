@@ -4,7 +4,7 @@ class IdeasController < ApplicationController
   before_action :require_idea_user, only: [:edit, :update, :destroy]
 
   def index
-    @ideas = Idea.all
+    @ideas = Idea.all.order('created_at DESC')
   end
 
   def new
