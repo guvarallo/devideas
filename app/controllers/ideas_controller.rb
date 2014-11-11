@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   before_action :require_user, except: [:index, :show]
   before_action :set_idea, only: [:edit, :update, :destroy, :like]
+  before_action :require_idea_user, only: [:edit, :update, :destroy]
 
   def index
     @ideas = Idea.all
@@ -67,4 +68,14 @@ class IdeasController < ApplicationController
   def set_idea
     @idea = Idea.find(params[:id])
   end
+
+  def require_idea_user
+    access_denied unless logged_in? and (current_user == @idea.user)
+  end
+
+  def access_denied
+    flash[:warning] = "Not allowed."
+    redirect_to root_path
+  end
+
 end

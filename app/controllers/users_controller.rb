@@ -54,4 +54,11 @@ class UsersController < ApplicationController
     session[:user_id] = nil
   end
 
+  def require_current_user
+    if current_user != User.find_by(slug: params[:id])
+      flash[:warning] = "Not allowed."
+      redirect_to root_path
+    end
+  end
+
 end
